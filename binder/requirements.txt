@@ -11,8 +11,8 @@
 
 #jupyter/jupyterlab extensions
 jupyterlab
-# ipywidgets
-# RISE
+ipywidgets
+RISE
 
 jupyter-server-proxy
 jupyter-vscode-proxy

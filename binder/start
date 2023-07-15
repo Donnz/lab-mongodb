@@ -5,18 +5,19 @@ mkdir logs
 
 chmod +x ~/binder/start.mongodb 
 chmod +x ~/binder/start.adminmongo 
-chmod +x ~/binder/start.vscode 
+chmod +x ~/binder/start.cassandra
 
 # starting mongodb
 ~/binder/start.mongodb   &
 
-# starting adminmongo in parallel
-# ~/binder/start.adminmongo   &
+# starting cassandra
+~/binder/start.cassandra   &
 
-# starting vscode in parallel
-~/binder/start.vscode   &
-
-
+cd ~
+echo " " >> .gitignore
+echo "resources/local/" >> .gitignore
+echo ".local/" >> .gitignore
+echo "local-home/" >> .gitignore
 
 # DO NOT REMOVE(!) 
 # Here is why: https://mybinder.readthedocs.io/en/latest/config_files.html#start-run-code-before-the-user-sessions-starts

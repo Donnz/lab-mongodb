@@ -15,11 +15,11 @@ ENV LANGUAGE en_US.UTF-8
 ENV SHELL /bin/bash
 
 # Set up user
-ARG NB_USER=thedatasociety
+ARG NB_USER=Donnz
 ARG NB_UID=1000
 ARG GIT_PREFIX=https://github.com
-ARG GIT_USER=thedatasociety
-ARG GIT_REPO=lab-template
+ARG GIT_USER=Donnz
+ARG GIT_REPO=Donnz/lab-template
 
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
