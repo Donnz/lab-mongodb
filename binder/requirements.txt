@@ -24,3 +24,5 @@ jupyter-vscode-proxy
 pymongo==3.10.0
 imongo-kernel
 pprintpp
+cqljupyter
+cassandra-driver

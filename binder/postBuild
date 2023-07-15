@@ -6,7 +6,8 @@
 
 # Building everything up
 echo "Building everything up (jupyter lab build)"
-jupyter lab build 
+jupyter lab build
+
 
 ###############################################################
 #             moving to a local installation folder           #
@@ -14,6 +15,7 @@ jupyter lab build
 
 mkdir ~/resources/local
 cd    ~/resources/local
+
 
 ###############################################################
 #             mongodb installation commands                   #
@@ -37,23 +39,6 @@ mv       mongodb-linux-x86_64-ubuntu1804-${MONGODB_VERSION}        mongodb-${MON
 echo "export PATH=\$PATH:\$MONGODB_HOME/bin"  >> ~/.bashrc
 echo "export PATH=\$PATH:\$MONGODB_HOME/bin"  >> ~/.profile
 
-###############################################################
-#             adminmongo installation commands                   #
-###############################################################
-
-# cd    ~/resources/local
-
-# git clone https://github.com/mrvautin/adminMongo.git 
-# cd adminMongo
-# npm install
-
-
-###############################################################
-#             mongo-express installation                      #
-###############################################################
-# npm install -g npm
-# npm install -g mongo-express
-
 
 ###############################################################
 #             cassandra installation commands                   #
@@ -75,6 +60,9 @@ rm      apache-cassandra-${CASSANDRA_VERSION}-bin.tar.gz
 # adding bin and sbin to $path
 echo "export PATH=\$PATH:\$CASSANDRA_HOME/bin"  >> ~/.bashrc
 echo "export PATH=\$PATH:\$CASSANDRA_HOME/bin"  >> ~/.profile
+
+# Setting up cassandra connection
+python -m cqljupyter.install  "[127.0.0.1 9042]"
 
 
 ###############################################################
