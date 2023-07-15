@@ -62,7 +62,7 @@ echo "export PATH=\$PATH:\$CASSANDRA_HOME/bin"  >> ~/.bashrc
 echo "export PATH=\$PATH:\$CASSANDRA_HOME/bin"  >> ~/.profile
 
 # Setting up cassandra connection
-python -m cqljupyter.install  "[127.0.0.1 9042]"
+python -m cqljupyter.install [127.0.0.1 9042]
 
 
 ###############################################################
