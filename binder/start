@@ -13,6 +13,9 @@ chmod +x ~/binder/start.cassandra
 # starting cassandra
 ~/binder/start.cassandra   &
 
+# starting redis in parallel
+~/binder/start.redis &
+
 cd ~
 echo " " >> .gitignore
 echo "resources/local/" >> .gitignore

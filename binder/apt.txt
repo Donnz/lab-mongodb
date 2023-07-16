@@ -3,9 +3,15 @@ vim
 curl
 wget
 net-tools
+locate
 
 
 #cassandra related
 openjdk-8-jdk
 build-essential 
 gdb
+
+# redis dependencies
+gcc
+build-essential
+libc-bin

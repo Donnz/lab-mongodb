@@ -9,6 +9,12 @@
 # sos
 # sos-notebook
 
+# ipython-sql
+sqlalchemy
+ipython-sql
+jupyterlab_sql
+mysqlclient
+
 #jupyter/jupyterlab extensions
 jupyterlab
 ipywidgets
