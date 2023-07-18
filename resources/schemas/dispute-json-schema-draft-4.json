@@ -1,0 +1,218 @@
+{
+    "$schema": "https://json-schema.org/draft-04/schema",
+    "$id": "dispute",
+    "type": "object",
+    "required": [
+      "disputeId",
+      "disputeReason",
+      "buyerId",
+      "gmtCreated",
+      "gmtModified",
+      "seller",
+      "item",
+      "resolution"
+    ],
+    "properties": {
+      "disputeId": {
+        "type": "string"
+      },
+      "disputeReason": {
+        "type": "string"
+      },
+      "buyerId": {
+        "type": "string"
+      },
+      "gmtCreated": {
+        "type": "string"
+      },
+      "gmtModified": {
+        "type": "string"
+      },
+      "seller": {
+        "type": "object",
+        "required": [
+          "storeId",
+          "sellerId"
+        ],
+        "properties": {
+          "storeId": {
+            "type": "string"
+          },
+          "sellerId": {
+            "type": "string"
+          }
+        }
+      },
+      "item": {
+        "type": "object",
+        "required": [
+          "itemPrice",
+          "supportFreeReturn",
+          "itemCount",
+          "itemId",
+          "skuId",
+          "skuValue",
+          "tradeSnapshotUrl",
+          "ParentOrderId"
+        ],
+        "properties": {
+          "itemPrice": {
+            "type": "object",
+            "required": [
+              "cent",
+              "currency",
+              "formattedPrice"
+            ],
+            "properties": {
+              "cent": {
+                "type": "integer"
+              },
+              "currency": {
+                "type": "string"
+              },
+              "formattedPrice": {
+                "type": "string"
+              }
+            }
+          },
+          "supportFreeReturn": {
+            "type": "boolean"
+          },
+          "itemCount": {
+            "type": "integer"
+          },
+          "itemId": {
+            "type": "string"
+          },
+          "skuId": {
+            "type": "string"
+          },
+          "skuValue": {
+            "type": "string"
+          },
+          "tradeSnapshotUrl": {
+            "type": "string"
+          },
+          "ParentOrderId": {
+            "type": "string"
+          }
+        }
+      },
+      "resolution": {
+        "type": "object",
+        "required": [
+          "status",
+          "arbitratorId",
+          "decision",
+          "firstRound"
+        ],
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "arbitratorId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "decision": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "firstRound": {
+            "type": "object",
+            "required": [
+              "reachedAgreement",
+              "initialProposal"
+            ],
+            "properties": {
+              "reachedAgreement": {
+                "type": "boolean"
+              },
+              "initialProposal": {
+                "$ref": "#/$defs/proposal"
+              },
+              "counterProposal": {
+                "$ref": "#/$defs/proposal"
+              }
+            }
+          },
+          "lastRound": {
+            "type": "object",
+            "required": [
+              "reachedAgreement",
+              "initialProposal"
+            ],
+            "properties": {
+              "reachedAgreement": {
+                "type": "boolean"
+              },
+              "initialProposal": {
+                "$ref": "#/$defs/proposal"
+              },
+              "counterProposal": {
+                "$ref": "#/$defs/proposal"
+              }
+            }
+          }
+        }
+      }
+    },
+    "$defs": {
+      "proposal": {
+        "type": "object",
+        "required": [
+          "gmtSubmitted",
+          "richTextReport",
+          "proposedSolution",
+          "status"
+        ],
+        "properties": {
+          "gmtSubmitted": {
+            "type": "string"
+          },
+          "richTextReport": {
+            "type": "string"
+          },
+          "proposedSolution": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/attachment"
+            }
+          }
+        }
+      },
+      "attachment": {
+        "type": "object",
+        "required": [
+          "artifactId",
+          "mimeType",
+          "extFileName",
+          "description"
+        ],
+        "properties": {
+          "artifactId": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "extFileName": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }

@@ -32,3 +32,6 @@ imongo-kernel
 pprintpp
 cqljupyter
 cassandra-driver
+
+Faker
+redis
