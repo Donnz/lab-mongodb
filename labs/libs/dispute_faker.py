@@ -2,8 +2,8 @@ from datetime import datetime
 from pprint import pprint
 
 import bson
-from faker import Factory, Faker, Generator, providers, utils
-from faker.providers import currency, date_time, file
+from faker import Faker
+from faker.providers import currency, date_time
 
 
 fake = Faker(use_weighting=True)
@@ -208,8 +208,6 @@ def generate_resolution(base_time=0):
                 )
                 resolution["gmtArbitrated"] = last_updated_time
                 resolution["decision"] = fake.random_element(elements=PROPOSED_SOLUTION)
-
-            resolution["decision"] = lr_counter_proposal["proposedSolution"]
 
     return (resolution, last_updated_time)
 
