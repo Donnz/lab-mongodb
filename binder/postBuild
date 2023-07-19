@@ -41,7 +41,7 @@ echo "export PATH=\$PATH:\$MONGODB_HOME/bin"  >> ~/.profile
 
 
 ###############################################################
-#             cassandra installation commands                   #
+#             cassandra installation commands                 #
 ###############################################################
 
 export CASSANDRA_VERSION=4.1.1
@@ -65,7 +65,7 @@ echo "export PATH=\$PATH:\$CASSANDRA_HOME/bin"  >> ~/.profile
 python -m cqljupyter.install 127.0.0.1 9042
 
 ###############################################################
-#             redis installation commands             #
+#                 redis installation commands                 #
 ###############################################################
 
 export REDIS_VERSION=6.0.5

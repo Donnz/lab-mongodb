@@ -111,8 +111,8 @@ def generate_resolution(base_time=0):
         "gmtArbitratorAssigned": None,
         "gmtArbitrated": None,
         "decision": None,
-        "first_round": first_round,
-        "last_round": None,
+        "firstRound": first_round,
+        "lastRound": None,
     }
 
     if fr_initial_proposal_status == "PENDING_DECISION":
@@ -156,7 +156,7 @@ def generate_resolution(base_time=0):
         lr_counter_proposal = first_round.get("counterProposal", {})
         lr_counter_proposal_status = lr_counter_proposal.get("status", None)
 
-        resolution["last_round"] = last_round
+        resolution["lastRound"] = last_round
 
         if lr_initial_proposal_status == "PENDING_DECISION":
             resolution["status"] = "WAITING_FOR_SELLER"
@@ -186,7 +186,7 @@ def generate_resolution(base_time=0):
             lr_initial_proposal_status == "COUNTERED"
             and lr_counter_proposal_status == "COUNTERED"
         ):
-            resolution["last_round"]["counterProposal"]["status"] = "REJECTED"
+            resolution["lastRound"]["counterProposal"]["status"] = "REJECTED"
             resolution["status"] = fake.random_element(elements=RESOLUTION_STATUS)
             last_updated_time = lr_counter_proposal["gmtSubmitted"]
 
@@ -225,10 +225,7 @@ def generate_dispute():
         "buyerId": str(fake.numerify(text="##")),
         "gmtCreated": create_time,
         "gmtModified": last_updated_time,
-        "seller": {
-            "storeId": str(fake.numerify(text="##")),
-            "sellerId": str(fake.numerify(text="##")),
-        },
+        "sellerId": str(fake.numerify(text="##")),
         "item": generate_item(),
         "resolution": resolution,
     }
