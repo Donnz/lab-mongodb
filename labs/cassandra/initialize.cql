@@ -66,7 +66,7 @@ CREATE TABLE disputes (
   gmtModified timestamp,
   item frozen<item>,
   resolution frozen<resolution>,
-  PRIMARY KEY (id));
+  PRIMARY KEY (id, itemId, gmtCreated));
 
 CREATE TABLE disputes_changelog (
   id text,
@@ -84,5 +84,14 @@ CREATE TABLE disputes_changelog (
   PRIMARY KEY (id, gmtModified))
 WITH CLUSTERING ORDER BY (gmtModified DESC);
 
+CREATE MATERIALIZED VIEW disputes_by_seller_and_date AS
+  SELECT * FROM disputes
+  PRIMARY KEY (gmtCreated, seller_id, itemId, id);
 
+CREATE MATERIALIZED VIEW disputes_by_buyer AS
+  SELECT * FROM disputes
+  PRIMARY KEY (gmtCreated, buyerId, itemId, id);
 
+CREATE MATERIALIZED VIEW disputes_by_arbitrator AS
+  SELECT * FROM disputes
+  PRIMARY KEY (gmtCreated, arbitratorId, itemId, id);
