@@ -1,7 +1,14 @@
-FROM ubuntu:19.04
+FROM ubuntu:20.04
 
 RUN apt-get -qq update && \
-    apt-get -qq install --yes --no-install-recommends locales curl git htop vim wget python3-pip less unzip \
+    apt-get -qq install --yes --no-install-recommends locales curl git htop vim wget python3-pip less unzip lsb-release gpg
+
+RUN curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+RUN sudo chmod 644 /usr/share/keyrings/redis-archive-keyring.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+RUN sudo apt-get -qq update && \
+    sudo apt-get -qq install --yes redis-stack-server redis-tools
 
 # Set up locales properly
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
