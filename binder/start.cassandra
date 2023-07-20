@@ -22,5 +22,3 @@ while ! cqlsh -e 'describe cluster' ; do
     echo "Waiting for Cassandra cluster"
     sleep 1
 done
-
-cd ~/

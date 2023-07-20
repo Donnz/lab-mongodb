@@ -6,3 +6,5 @@ nohup  redis-server --daemonize yes --loadmodule $REDIS_HOME/RedisTimeSeries/bin
 sleep 10
 
 redis-cli ping
+
+cd ~/
