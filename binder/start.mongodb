@@ -1,9 +1,7 @@
 #!/bin/bash
 
 mkdir ${MONGODB_HOME}/data/db -p
-cp ~/resources/redistimeseries.so ${MONGODB_HOME}/bin/
-cp ~/resources/module.json ${MONGODB_HOME}/bin/
-nohup  ${MONGODB_HOME}/bin/mongod --replSet rs0 --dbpath ${MONGODB_HOME}/data/db --loadmodule ${MONGODB_HOME}/bin/redistimeseries.so  &> ~/logs/mongodb-$MONGODB_VERSION.log &
+nohup  ${MONGODB_HOME}/bin/mongod --replSet rs0 --dbpath ${MONGODB_HOME}/data/db  &> ~/logs/mongodb-$MONGODB_VERSION.log &
 
 
 sleep 10

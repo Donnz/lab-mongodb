@@ -2,7 +2,7 @@
 
 echo "Starting cassandra"
 
-cd $CASSANDRA_HOME 
+cd $CASSANDRA_HOME
 mkdir logs
 mkdir data
 
@@ -22,3 +22,5 @@ while ! cqlsh -e 'describe cluster' ; do
     echo "Waiting for Cassandra cluster"
     sleep 1
 done
+
+cd ~/
