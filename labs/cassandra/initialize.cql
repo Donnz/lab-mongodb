@@ -98,3 +98,8 @@ CREATE MATERIALIZED VIEW disputes_by_arbitrator AS
   SELECT * FROM disputes
   WHERE gmtCreated IS NOT NULL AND arbitratorId IS NOT NULL AND itemId IS NOT NULL AND id IS NOT NULL
   PRIMARY KEY (gmtCreated, arbitratorId, itemId, id);
+
+CREATE MATERIALIZED VIEW disputes_by_item_and_date AS
+  SELECT * FROM disputes
+  WHERE gmtCreated IS NOT NULL AND sellerid IS NOT NULL AND itemId IS NOT NULL AND id IS NOT NULL
+  PRIMARY KEY (gmtCreated, itemId, id);
