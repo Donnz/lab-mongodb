@@ -61,6 +61,9 @@ rm      apache-cassandra-${CASSANDRA_VERSION}-bin.tar.gz
 echo "export PATH=\$PATH:\$CASSANDRA_HOME/bin"  >> ~/.bashrc
 echo "export PATH=\$PATH:\$CASSANDRA_HOME/bin"  >> ~/.profile
 
+rm $CASSANDRA_HOME/conf/cassandra.yaml
+cp ~/resources/configs/cassandra/cassandra.yaml $CASSANDRA_HOME/conf/
+
 # Setting up cassandra connection
 python -m cqljupyter.install 127.0.0.1 9042
 

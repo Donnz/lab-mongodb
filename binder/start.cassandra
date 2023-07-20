@@ -15,8 +15,6 @@ echo "-Xmx2G" >> $CASSANDRA_HOME/conf/jvm.options
 cp ~/resources/configs/cassandra/cassandra $CASSANDRA_HOME/bin/
 chmod +x  $CASSANDRA_HOME/bin/cassandra
 
-python -c 'import yaml;import os;f=open(f"{os.environ["CASSANDRA_HOME"]}/conf/cassandra.yaml");y=yaml.safe_load(f);y["materialized_views_enabled"] = True; print(yaml.dump(y, default_flow_style=False, sort_keys=False))'
-
 nohup  ./bin/cassandra  &> ~/logs/cassandra-$CASSANDRA_VERSION.log &
 
 
