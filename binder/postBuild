@@ -71,6 +71,16 @@ python -m cqljupyter.install 127.0.0.1 9042
 #                 redis installation commands                 #
 ###############################################################
 
+apt-get -qq update && \
+apt-get -qq install --yes --no-install-recommends curl lsb-release gpg
+
+curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+sudo chmod 644 /usr/share/keyrings/redis-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+sudo apt-get -qq update && \
+sudo apt-get -qq install --yes redis-stack-server redis-tools
+
 # export REDIS_VERSION=6.0.5
 # echo "export REDIS_VERSION=${REDIS_VERSION}" >> ~/.bashrc
 # echo "export REDIS_VERSION=${REDIS_VERSION}" >> ~/.profile
