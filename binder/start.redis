@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-nohup  redis-stack-server --daemonize yes &> ~/logs/redis-$REDIS_VERSION.log &
+nohup  redis-server --daemonize yes --loadmodule $REDIS_HOME/RedisTimeSeries/bin/redistimeseries.so &> ~/logs/redis-$REDIS_VERSION.log &
 
 sleep 10
 
