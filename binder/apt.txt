@@ -4,11 +4,11 @@ curl
 wget
 net-tools
 locate
-
+cmake
 
 #cassandra related
 openjdk-8-jdk
-build-essential 
+build-essential
 gdb
 
 # redis dependencies
