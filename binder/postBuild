@@ -79,11 +79,10 @@ export REDIS_HOME=$(pwd)/redis-${REDIS_VERSION}
 echo "export REDIS_HOME=${REDIS_HOME}"       >> ~/.bashrc
 echo "export REDIS_HOME=${REDIS_HOME}"       >> ~/.profile
 
-       
 wget https://github.com/redis-stack/redis-stack/archive/refs/tags/${REDIS_VERSION}.tar.gz  && \
-tar xvzf redis-${REDIS_VERSION}.tar.gz                                && \
-rm       redis-${REDIS_VERSION}.tar.gz                                && \
-cd       redis-${REDIS_VERSION}
+tar xvzf redis-stack-${REDIS_VERSION}.tar.gz                                && \
+rm       redis-stack-${REDIS_VERSION}.tar.gz                                && \
+cd       redis-stack-${REDIS_VERSION}
 make
 # make test
 
